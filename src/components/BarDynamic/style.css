@@ -1,0 +1,7 @@
+.BarDynamic{
+    display: flex;
+    flex-flow: row wrap;
+}
+.BarDynamic div img{
+    width: 100px;
+}
