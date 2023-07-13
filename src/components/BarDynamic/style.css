@@ -1,7 +1,37 @@
-.BarDynamic{
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.BarDynamicPoster{
+    background: green;
+    width: 90%;
+    margin: 0 auto;
     display: flex;
-    flex-flow: row wrap;
+    overflow-x: scroll;
+    border: red 3px solid;
 }
-.BarDynamic div img{
-    width: 100px;
+.Allposters{
+    background: purple;
+
+    padding: 30px 0;
+    gap: 1.20%;
+
+    display: flex;
+
+    position: relative;
+
 }
+.Allposters .poster{
+    background: red;
+    width: 18%;
+    flex-shrink: 0;
+}
+.Allposters .poster:hover{
+    transform: scale(1.09);
+}
+.Allposters .poster img{
+    width: 100%;
+}
+

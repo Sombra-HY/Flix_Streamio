@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { options, URLTMDB } from './var';
-import BarDynamic from './components/BarDynamic/BarDynamic';
+import BarDynamicPoster  from './components/BarDynamic/BarDynamicPoster';
 
 function App() {
     const [listMovies, setListMovies] = useState([]);
-    const [, setListSeries] = useState([]);
+    const [ListSeries, setListSeries] = useState([]);
 
     useEffect(() => {
         const { series, movies } = URLTMDB;
@@ -22,12 +22,11 @@ function App() {
 
             setListMovies(moviesJson.results);
             setListSeries(seriesJson.results);
-            console.log(moviesJson.results);
         }
         f();
     }, []);
 
-    return <BarDynamic listMidia={listMovies} />;
+    return <BarDynamicPoster listMidia={ListSeries} />;
 }
 
 export default App;
