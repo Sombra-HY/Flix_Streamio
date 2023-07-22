@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import { options, URLTMDB } from './var';
-import BarDynamicPoster  from './components/BarDynamic/BarDynamicPoster';
+import { imageURL, options, URLTMDB } from './var';
+import BarDynamicPoster from './components/BarDynamic/BarDynamicPoster';
+import { InputSearch } from './components/InputSearch/InputSearch';
+import fetch_api_json from './utils/FetchApiJson';
 
 function App() {
     const [listMovies, setListMovies] = useState([]);
@@ -10,23 +12,26 @@ function App() {
         const { series, movies } = URLTMDB;
 
         async function f() {
-            const moviesContent = fetch(series.now, options);
-            const seriesContent = fetch(movies.now, options);
+            const moviesContent = await fetch_api_json(series.now, options);
+            const seriesContent = await fetch_api_json(movies.now, options);
 
-            const [contentM, contentS] = await Promise.all([
-                moviesContent,
-                seriesContent,
-            ]);
-            const moviesJson = await contentM.json();
-            const seriesJson = await contentS.json();
-
-            setListMovies(moviesJson.results);
-            setListSeries(seriesJson.results);
+            setListMovies(moviesContent);
+            setListSeries(seriesContent);
+            console.log(moviesContent);
+            console.log(seriesContent);
         }
         f();
-    }, []);
 
-    return <BarDynamicPoster listMidia={ListSeries} />;
+        console.log('a');
+    }, []);
+    return (
+        <section>
+            <p>text</p>
+            {/* <InputSearch /> */}
+            {/* <BarDynamicPoster listMidia={ListSeries} />
+            <BarDynamicPoster listMidia={listMovies} /> */}
+        </section>
+    );
 }
 
 export default App;

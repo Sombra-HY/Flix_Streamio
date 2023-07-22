@@ -3,35 +3,29 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+    background: black;
+    color: white;
+}
 .BarDynamicPoster{
-    background: green;
+    /*background: green;*/
     width: 90%;
     margin: 0 auto;
     display: flex;
-    overflow-x: scroll;
-    border: red 3px solid;
+
+    /*border: red 3px solid;*/
+    scroll-behavior: smooth;
+
 }
 .Allposters{
-    background: purple;
-
-    padding: 30px 0;
+    overflow-x: scroll;
+    /*background: purple;*/
+    padding: 40px 0;
     gap: 1.20%;
-
     display: flex;
-
     position: relative;
-
 }
-.Allposters .poster{
-    background: red;
-    width: 18%;
-    flex-shrink: 0;
-}
-.Allposters .poster:hover{
-    transform: scale(1.09);
-}
-.Allposters .poster img{
-    width: 100%;
+.Allposters::-webkit-scrollbar{
+    width: 0;
 }
 
