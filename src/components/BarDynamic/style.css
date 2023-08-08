@@ -1,25 +1,13 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    background: black;
-    color: white;
-}
 .BarDynamicPoster{
-    /*background: green;*/
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
 
-    /*border: red 3px solid;*/
     scroll-behavior: smooth;
 
 }
 .Allposters{
     overflow-x: scroll;
-    /*background: purple;*/
     padding: 40px 0;
     gap: 1.20%;
     display: flex;
@@ -28,4 +16,27 @@ body{
 .Allposters::-webkit-scrollbar{
     width: 0;
 }
+
+.BarDynamicPoster button{
+    border: none;
+    background: rgba(0,0,0,0.8);
+
+    position: relative;
+
+    border-radius: 100% 100% 100% 0;
+}
+.BarDynamicPoster .buttonLeft{
+    left: 15px;
+    z-index: 5;
+
+}
+
+.BarDynamicPoster .buttonRight{
+    right: 15px;
+}
+
+.BarDynamicPoster button .material-symbols-outlined{
+    color: #282828;
+}
+
 
