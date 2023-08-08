@@ -1,0 +1,50 @@
+.midia-container{
+    width: 100%;
+    height: 70%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: top;
+    position: absolute;
+
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+    padding: 10vh 2%;
+
+    display: flex;
+    flex-direction: column;
+
+
+}
+.midia-container::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,1));
+    z-index: 1;
+}
+.midia-container section{
+    z-index: 2;
+}
+.midia-container section figure .img-page{
+    border-radius: 5%;
+    width: 25%;
+}
+.container-recomendations{
+    z-index: 2;
+    position: relative;
+}
+
+/*Components*/
+
+.midia-container .poster {
+    width: 13vw;
+}
+.midia-container .BarDynamicPoster{
+    width: 95%;
+    margin: 0 auto;
+}
