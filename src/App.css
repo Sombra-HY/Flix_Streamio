@@ -2,7 +2,47 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-link{
+    color: white;
+
+    font-family: 'Nunito', sans-serif;
     text-decoration: none;
+    /*
+        disable pulling
+    */
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+body{
+    background: #000000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+header{
+    padding-bottom: 5em;
+}
+a{
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+p{
+    font-size: 1.15em;
+}
+
+.nav-container{
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-container ul{
+    display: flex;
+    gap: 4em;
 }
