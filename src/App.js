@@ -1,36 +1,60 @@
-import { useEffect, useState } from 'react';
-import { imageURL, options, URLTMDB } from './var';
-import BarDynamicPoster from './components/BarDynamic/BarDynamicPoster';
+import { useState } from 'react';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+
+import './App.css';
+
+//components
+import { GridContent } from './components/GridContent/GridContent';
 import { InputSearch } from './components/InputSearch/InputSearch';
-import fetch_api_json from './utils/FetchApiJson';
+import { Home } from './pages/Home/Home';
+import PageMidia from './pages/PageMidia/Pagemidia';
 
 function App() {
-    const [listMovies, setListMovies] = useState([]);
-    const [ListSeries, setListSeries] = useState([]);
-
-    useEffect(() => {
-        const { series, movies } = URLTMDB;
-
-        async function f() {
-            const moviesContent = await fetch_api_json(series.now, options);
-            const seriesContent = await fetch_api_json(movies.now, options);
-
-            setListMovies(moviesContent);
-            setListSeries(seriesContent);
-            console.log(moviesContent);
-            console.log(seriesContent);
-        }
-        f();
-
-        console.log('a');
-    }, []);
+    const [listseach, SetListseach] = useState([]);
     return (
-        <section>
-            <p>text</p>
-            {/* <InputSearch /> */}
-            {/* <BarDynamicPoster listMidia={ListSeries} />
-            <BarDynamicPoster listMidia={listMovies} /> */}
-        </section>
+        <>
+            <BrowserRouter>
+                <header>
+                    <nav className="nav-container">
+                        <Link to="/">Home</Link>
+                        <Link to="/series">Series</Link>
+                        <Link to="/">Movies</Link>
+                        <InputSearch
+                            listseach={listseach}
+                            SetListseach={SetListseach}
+                        />
+                    </nav>
+                </header>
+                <main>
+                    {/*{listseach.length !== 0 && (*/}
+                    {/*    <GridContent content={listseach} />*/}
+                    {/*)}*/}
+                </main>
+
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    {listseach.length !== 0 && (
+                        <Route
+                            path="/searchmidias"
+                            element={<GridContent content={listseach} />}
+                        />
+                    )}
+                    <Route path="/serie/:id" element={<PageMidia />} />
+                    <Route path="/movie/:id" element={<PageMidia />} />
+                </Routes>
+
+                <footer>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />a
+                </footer>
+            </BrowserRouter>
+        </>
     );
 }
 
