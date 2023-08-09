@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 //others
-import { options, URLTMDB } from '../../var';
+import { URLTMDB } from '../../var';
 import fetch_api_json from '../../utils/FetchApiJson';
 
 //css
@@ -17,9 +17,9 @@ export const Home = () => {
     useEffect(() => {
         const { serie, movie } = URLTMDB;
 
-        async function f() {
-            const moviesContent = await fetch_api_json(movie.now, options);
-            const seriesContent = await fetch_api_json(serie.top, options);
+        async function Load() {
+            const moviesContent = await fetch_api_json(movie.now);
+            const seriesContent = await fetch_api_json(serie.top);
 
             setListMovies(moviesContent.results);
             setListSeries(seriesContent.results);
@@ -28,11 +28,10 @@ export const Home = () => {
             console.log(moviesContent.results);
             console.log(seriesContent.results);
         }
-        f();
-
-        console.log('a');
+        Load().catch(() => {
+            console.log('a');
+        });
     }, []);
-
     return (
         <>
             <BarDynamicPoster listMidia={listMovies} />

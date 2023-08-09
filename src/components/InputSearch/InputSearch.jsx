@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { URLTMDB, options } from '../../var';
+import { URLTMDB } from '../../var';
 import fetch_api_json from '../../utils/FetchApiJson';
 
 import './style.css';
@@ -15,12 +15,11 @@ export const InputSearch = ({ listseach, SetListseach }) => {
         const wordSearch = search.movie + inputvalue;
         console.log(wordSearch);
 
-        const SearchMidias = await fetch_api_json(wordSearch, options);
+        const SearchMidias = await fetch_api_json(wordSearch);
 
         SetListseach(SearchMidias.results);
         console.log(SearchMidias.results);
         navigate('/searchmidias');
-
     };
 
     const getValueinput = (e) => {
@@ -38,7 +37,7 @@ export const InputSearch = ({ listseach, SetListseach }) => {
     return (
         <>
             <input
-                className='inputSearch'
+                className="inputSearch"
                 type="search"
                 name=""
                 placeholder="Digite"

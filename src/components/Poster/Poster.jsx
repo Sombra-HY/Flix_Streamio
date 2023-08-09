@@ -1,7 +1,6 @@
 import { imageURL } from '../../var';
 
 import './style.css';
-import { forwardRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const Poster = ({ content, isDragging = true }) => {
@@ -10,10 +9,10 @@ export const Poster = ({ content, isDragging = true }) => {
         poster_path,
         id,
         name,
-        overview,
-        media_type,
+        // overview,
+        // media_type,
         first_air_date,
-        logo_path,
+        // logo_path,
     } = content;
     Poster.displayName = 'Poster';
 

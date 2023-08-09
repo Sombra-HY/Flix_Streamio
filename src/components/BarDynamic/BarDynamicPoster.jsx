@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import { createRef } from 'react';
 import { Poster } from '../Poster/Poster';
 import './style.css';
 
@@ -15,9 +14,10 @@ function BarDynamicPoster(props) {
     const [scrollLeft, setScrollLeft] = useState(0);
 
     const handleMouseDown = (e) => {
+        const { scrollLeft } = carouselRef.current;
         setIsDragging(true);
         setStartX(e.clientX);
-        setScrollLeft(carouselRef.current.scrollLeft);
+        setScrollLeft(scrollLeft);
     };
 
     const handleMouseMove = (e) => {
@@ -44,7 +44,8 @@ function BarDynamicPoster(props) {
                     onMouseUp={handleMouseUp}
                 >
                     {listMidia.map((midia, index) => {
-                        if (midia.poster_path || midia.logo_path) {
+                        const { poster_path, logo_path } = midia;
+                        if (poster_path || logo_path) {
                             return (
                                 <Poster
                                     content={midia}
