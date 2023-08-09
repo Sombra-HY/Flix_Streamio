@@ -33,7 +33,7 @@ function BarDynamicPoster(props) {
                 </button>
                 <div className="Allposters">
                     {listMidia.map((midia, index) => {
-                        if (midia.poster_path || midia.logo_path) {
+                        if (midia.poster_path || midia.logo_path ) {
                             const posterRef = createRef();
                             posterRefs.current[index] = posterRef;
                             return (
