@@ -1,59 +1,61 @@
-import { Poster } from '../Poster/Poster';
-
-import './style.css';
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { createRef } from 'react';
-import { cycleIntervalIncrement } from '../../utils/CicleNumber';
+import { Poster } from '../Poster/Poster';
+import './style.css';
 
 function BarDynamicPoster(props) {
     const { listMidia } = props;
-    const posterRefs = useRef([]);
-    const [pageNow, setPageNow] = useState(6);
 
-    const nextPage = (e) => {
-        const elClass = e.target.classList.value;
-        const increment = elClass === 'buttonRight' ? 5 : -5;
+    const carouselRef = useRef();
+    const [isDragging, setIsDragging] = useState(true);
 
-        setPageNow(cycleIntervalIncrement(pageNow, increment, 0, 19));
-        console.log(cycleIntervalIncrement(pageNow, increment, 0, 19));
-        posterRefs.current[pageNow].current.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-            inline: 'start',
-        });
+    const [movi, setmovi] = useState(false);
+
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
+
+    const handleMouseDown = (e) => {
+        setIsDragging(true);
+        setStartX(e.clientX);
+        setScrollLeft(carouselRef.current.scrollLeft);
+    };
+
+    const handleMouseMove = (e) => {
+        if (!isDragging) return;
+        const diffX = e.clientX - startX;
+
+        carouselRef.current.scrollLeft = scrollLeft - diffX;
+    };
+
+    const handleMouseUp = (e) => {
+        const diffX = e.clientX - startX;
+        setmovi(diffX === 0);
+        setIsDragging(false);
     };
 
     return (
         <section>
             <section className="BarDynamicPoster">
-                <button className="buttonLeft" onClick={(e) => nextPage(e)}>
-                    <span className="material-symbols-outlined">
-                        arrow_back_ios
-                    </span>
-                </button>
-                <div className="Allposters">
+                <div
+                    className="Allposters"
+                    ref={carouselRef}
+                    onMouseMove={handleMouseMove}
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
+                >
                     {listMidia.map((midia, index) => {
-                        if (midia.poster_path || midia.logo_path ) {
-                            const posterRef = createRef();
-                            posterRefs.current[index] = posterRef;
+                        if (midia.poster_path || midia.logo_path) {
                             return (
                                 <Poster
                                     content={midia}
                                     key={`BarDynamicPoster-poster${index}`}
-                                    ref={posterRef}
+                                    isDragging={movi}
                                 />
                             );
                         }
                         return null;
                     })}
                 </div>
-                <button className="buttonRight" onClick={(e) => nextPage(e)}>
-                    <span className="material-symbols-outlined">
-                        <span className="material-symbols-outlined">
-                            arrow_forward_ios
-                        </span>
-                    </span>
-                </button>
             </section>
         </section>
     );

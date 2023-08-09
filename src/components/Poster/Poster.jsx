@@ -4,7 +4,7 @@ import './style.css';
 import { forwardRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const Poster = forwardRef(({ content }, ref) => {
+export const Poster = ({ content, isDragging = true }) => {
     const navigate = useNavigate();
     const {
         poster_path,
@@ -18,21 +18,30 @@ export const Poster = forwardRef(({ content }, ref) => {
     Poster.displayName = 'Poster';
 
     const print = () => {
-        const rote = first_air_date ? 'serie' : 'movie';
-        navigate(`/${rote}/${id}`);
-        window.scrollTo({
-            top: 0,
-        });
+        console.log(isDragging);
+
+        if (isDragging) {
+            const rote = first_air_date ? 'serie' : 'movie';
+            navigate(`/${rote}/${id}`);
+            window.scrollTo({
+                top: 0,
+            });
+        }
     };
 
     const url_Img = imageURL + poster_path;
     return (
         !!poster_path && (
             <>
-                <figure className="poster" ref={ref} onClick={print}>
-                    <img src={url_Img} alt={name} key={`poster`} />
+                <figure className="poster" onClick={print}>
+                    <img
+                        src={url_Img}
+                        alt={name}
+                        key={`poster`}
+                        loading="lazy"
+                    />
                 </figure>
             </>
         )
     );
-});
+};
