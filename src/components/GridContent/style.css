@@ -4,8 +4,10 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
     margin: auto;
-    gap: 3%;
-    padding: 0 4%;
+    padding: 3%;
+}
+.Grid-container .poster{
+    margin: 2.2%;
 }
 
 @media (min-width: 801px){

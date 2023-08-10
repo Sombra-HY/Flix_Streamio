@@ -20,9 +20,9 @@ export const GridContent = ({ content }) => {
                     />
                 );
             })}
-            <nav>
-                <button>click</button>
-            </nav>
+            {/*<nav>*/}
+            {/*    <button>click</button>*/}
+            {/*</nav>*/}
         </section>
     );
 };
