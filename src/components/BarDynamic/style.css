@@ -8,7 +8,7 @@
 }
 .Allposters{
     overflow-x: scroll;
-    padding: 40px 0;
+    padding: 10px 0;
     gap: 1.20%;
     display: flex;
     position: relative;
@@ -19,4 +19,91 @@
 }
 .Allposters {
     scrollbar-width: none;
+}
+.BarDynamicPoster .poster{
+    width: 45vw;
+    flex-shrink: 0;
+}
+@media (min-width: 400px){
+    .BarDynamicPoster .poster{
+        width: 41vw;
+        flex-shrink: 0;
+    }
+    .Allposters{
+        overflow-x: scroll;
+        padding: 3px 0;
+        gap: 2%;
+        display: flex;
+        position: relative;
+    }
+}@media (min-width: 460px){
+    .BarDynamicPoster .poster{
+        width: 38vw;
+        flex-shrink: 0;
+    }
+    .Allposters{
+        overflow-x: scroll;
+        padding: 10px 0;
+        gap: 2%;
+        display: flex;
+        position: relative;
+    }
+}
+@media (min-width: 801px){
+    .BarDynamicPoster .poster{
+        width: 28vw;
+        flex-shrink: 0;
+    }
+    .Allposters{
+        overflow-x: scroll;
+        padding: 10px 0;
+        gap: 1.8%;
+        display: flex;
+        position: relative;
+    }
+}
+@media (min-width: 1025px){
+    .BarDynamicPoster .poster{
+        width: 18vw;
+        flex-shrink: 0;
+    }
+    .Allposters{
+        overflow-x: scroll;
+        padding: 10px 0;
+        gap: 1.6%;
+        display: flex;
+        position: relative;
+    }
+
+}@media (min-width: 1100px){
+    .BarDynamicPoster .poster{
+        width: 18vw;
+        flex-shrink: 0;
+    }
+    .Allposters{
+        overflow-x: scroll;
+        padding: 10px 0;
+        gap: 1.5%;
+        display: flex;
+        position: relative;
+    }
+}
+@media (min-width: 1281px){
+    .BarDynamicPoster .poster{
+        width: 15vw;
+        flex-shrink: 0;
+    }
+}
+@media (min-width: 1600px){
+    .BarDynamicPoster .poster{
+        width: 12vw;
+        flex-shrink: 0;
+    }
+    .Allposters{
+        overflow-x: scroll;
+        padding: 10px 0;
+        gap: 1.20%;
+        display: flex;
+        position: relative;
+    }
 }

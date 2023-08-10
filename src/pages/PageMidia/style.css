@@ -39,12 +39,43 @@
     position: relative;
 }
 
-/*Components*/
 
+.overview-Midia{
+    margin: 5%;
+}
+
+/*Components*/
 .midia-container .poster {
     width: 13vw;
 }
 .midia-container .BarDynamicPoster{
     width: 95%;
     margin: 0 auto;
+}
+.midia-container .poster {
+    width: 24vw;
+}
+@media (min-width: 801px){
+    .midia-container .poster {
+        width: 22vw;
+    }
+}
+@media (min-width: 1025px){
+    .midia-container .poster {
+        width: 18vw;
+    }
+}@media (min-width: 1100px){
+    .midia-container .poster {
+        width: 15vw;
+    }
+}
+@media (min-width: 1281px){
+    .midia-container .poster {
+        width: 13vw;
+    }
+}
+
+
+.Grid-container .poster{
+    width: auto;
 }

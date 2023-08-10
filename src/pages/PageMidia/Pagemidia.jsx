@@ -59,7 +59,7 @@ const PageMidia = () => {
                                     alt={midia.original_title}
                                 />
                             </figure>
-                            <div>
+                            <div className="overview-Midia">
                                 <h1>{midia.original_title || midia.name}</h1>
                                 <div className="genres">
                                     {midia.genres.map((el, index) => {

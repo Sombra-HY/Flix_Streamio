@@ -32,8 +32,9 @@ export const Poster = ({ content, isDragging = true }) => {
     return (
         !!poster_path && (
             <>
-                <figure className="poster" onClick={print}>
+                <figure className="poster">
                     <img
+                        onClick={print}
                         src={url_Img}
                         alt={name}
                         key={`poster`}
