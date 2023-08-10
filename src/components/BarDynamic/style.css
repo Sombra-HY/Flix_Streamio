@@ -19,6 +19,7 @@
 }
 .Allposters {
     scrollbar-width: none;
+    gap: 4%;
 }
 .BarDynamicPoster .poster{
     width: 45vw;
@@ -32,7 +33,7 @@
     .Allposters{
         overflow-x: scroll;
         padding: 3px 0;
-        gap: 2%;
+        gap: 3%;
         display: flex;
         position: relative;
     }
