@@ -12,62 +12,51 @@ import BarDynamicPoster from '../../components/BarDynamic/BarDynamicPoster';
 
 export const Home = () => {
     const [listMovies, setListMovies] = useState([]);
-    const [ListSeries, setListSeries] = useState([]);
+    const [listMovies1, setListMovies1] = useState([]);
+
+    const [listSeries, setListSeries] = useState([]);
+    const [listSeries1, setListSeries1] = useState([]);
 
     useEffect(() => {
         const { serie, movie } = URLTMDB;
 
         async function Load() {
-            const moviesContent = await fetch_api_json(movie.now);
-            const seriesContent = await fetch_api_json(serie.top);
+            try {
+                const moviesContent = await fetch_api_json(movie.now);
+                const moviesContent1 = await fetch_api_json(movie.top);
 
-            setListMovies(moviesContent.results);
-            setListSeries(seriesContent.results);
-            console.log(moviesContent);
-            console.log(seriesContent);
-            console.log(moviesContent.results);
-            console.log(seriesContent.results);
+                setListMovies(moviesContent.results);
+                setListMovies1(moviesContent1.results);
+
+                const seriesContent = await fetch_api_json(serie.top);
+                const seriesContent1 = await fetch_api_json(serie.popular);
+
+                setListSeries(seriesContent.results);
+                setListSeries1(seriesContent1.results);
+            } catch (error) {
+                console.log('e');
+            }
         }
+
         Load().catch(() => {
             console.log('a');
         });
     }, []);
+
     return (
         <>
-            <BarDynamicPoster listMidia={listMovies} />
-            <BarDynamicPoster listMidia={ListSeries} />
+            (
+            <>
+                <h1>Movie Now</h1>
+                <BarDynamicPoster listMidia={listMovies} />
+                <h1>Movie Top</h1>
+                <BarDynamicPoster listMidia={listMovies1} />
+                <h1>Serie Top</h1>
+                <BarDynamicPoster listMidia={listSeries} />
+                <h1>Serie Popular</h1>
+                <BarDynamicPoster listMidia={listSeries1} />
+            </>
+            )
         </>
     );
 };
-
-// function App() {
-//     const [listMovies, setListMovies] = useState([]);
-//     const [ListSeries, setListSeries] = useState([]);
-//
-//     // const [loading, setloading] = useState(true);
-//
-//     useEffect(() => {
-//         const { series, movies } = URLTMDB;
-//
-//         async function f() {
-//             const moviesContent = await fetch_api_json(movies.now, options);
-//             const seriesContent = await fetch_api_json(series.top, options);
-//
-//             setListMovies(moviesContent.results);
-//             setListSeries(seriesContent.results);
-//             console.log(moviesContent.results);
-//             console.log(seriesContent.results);
-//             // setloading(false);
-//         }
-//         f();
-//
-//         console.log('a');
-//     }, []);
-//     return (
-//         <>
-//                 {<BarDynamicPoster listMidia={listMovies} />}
-//                 {<BarDynamicPoster listMidia={ListSeries} />}
-//                 {/*{!loading && <PageMidia midia={ListSeries[0]} />}*/}
-//         </>
-//     );
-// }
