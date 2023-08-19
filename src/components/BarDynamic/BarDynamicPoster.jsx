@@ -1,17 +1,19 @@
-import React, { useRef, useState } from 'react';
 import { Poster } from '../Poster/Poster';
 import './style.css';
+import { useMetaData } from './UseMetaData';
 
-function BarDynamicPoster(props) {
-    const { listMidia } = props;
-
-    const carouselRef = useRef();
-    const [isDragging, setIsDragging] = useState(true);
-
-    const [movi, setmovi] = useState(false);
-
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
+function BarDynamicPoster({ listMidia }) {
+    const {
+        carouselRef,
+        isDragging,
+        setIsDragging,
+        movi,
+        setmovi,
+        startX,
+        setStartX,
+        scrollLeft,
+        setScrollLeft,
+    } = useMetaData();
 
     const handleMouseDown = (e) => {
         const { scrollLeft } = carouselRef.current;
@@ -42,6 +44,7 @@ function BarDynamicPoster(props) {
                     onMouseMove={handleMouseMove}
                     onMouseDown={handleMouseDown}
                     onMouseUp={handleMouseUp}
+                    onTouchEnd={handleMouseUp}
                 >
                     {listMidia.map((midia, index) => {
                         const { poster_path, logo_path } = midia;
