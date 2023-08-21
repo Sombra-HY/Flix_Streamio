@@ -1,4 +1,9 @@
+.container-actors{
+    margin: 0 10px;
+}
+
 .listActor {
+    margin: 0 4px;
     display: flex;
     width: 60%;
     overflow-x: auto;
@@ -20,18 +25,18 @@
 }
 
 .listActor::-webkit-scrollbar {
-    width: 10px;
-    height: 6px;
+    width: 15px;
+    height: 8px;
 }
 .listActor::-webkit-scrollbar-track {
     border-radius: 10px;
 }
 .listActor::-webkit-scrollbar-thumb {
-    background: #171515;
+    background: #dad1d1;
     border-radius: 10px;
 }
 .listActor::-webkit-scrollbar-thumb:hover {
-    background: #232020;
+    background: #2d2d2d;
 }
 
 .listActor img {
