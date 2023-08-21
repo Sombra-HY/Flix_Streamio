@@ -1,25 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { imageURL, imageURLoriginal, URLTMDB } from '../../var';
+import React, { useEffect } from 'react';
+import { imageURL, imageURLoriginal } from '../../var';
+
 import './style.css';
-import { useLocation, useParams } from 'react-router-dom';
+
 import fetch_api_json from '../../utils/FetchApiJson';
 import BarDynamicPoster from '../../components/BarDynamic/BarDynamicPoster';
+import { TextExpandable } from '../../components/TextExpandable/TextExpandable';
+import { useMegadata } from './useMegadata';
+import { ActorsList } from '../../components/ActorsList/ActorsList';
 
 const PageMidia = () => {
-    const [midia, setMidia] = useState([]);
-    const [recomendations, setRecomendations] = useState([]);
-    const [, setlistcredits] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    const { id } = useParams();
-    const { pathname } = useLocation();
-    const typeMidia = pathname.includes('movie') ? 'movie' : 'serie';
-
-    const { detailsID, recomendationsID, credits } = URLTMDB[typeMidia];
-
-    const urlMidia = detailsID.replace('id', id);
-    const urlRecomend = recomendationsID.replace('id', id);
-    const urlcredits = credits.replace('id', id);
+    const {
+        midia,
+        setMidia,
+        recomendations,
+        setRecomendations,
+        listcredits,
+        setlistcredits,
+        isLoading,
+        setIsLoading,
+        urlMidia,
+        urlRecomend,
+        urlcredits,
+    } = useMegadata();
 
     useEffect(() => {
         const LoadPost = async () => {
@@ -36,7 +39,15 @@ const PageMidia = () => {
             setIsLoading(false);
         };
         LoadPost();
-    }, [urlMidia, urlRecomend, urlcredits]);
+    }, [
+        urlMidia,
+        urlRecomend,
+        urlcredits,
+        setIsLoading,
+        setlistcredits,
+        setMidia,
+        setRecomendations,
+    ]);
 
     return (
         <>
@@ -70,20 +81,13 @@ const PageMidia = () => {
                                         );
                                     })}
                                 </div>
-
-                                {/*<section className="autores">*/}
-                                {/*    {listcredits.map((acthor, index) => {*/}
-                                {/*        return (*/}
-                                {/*            <PhotoFrame*/}
-                                {/*                key={`Acthor${acthor.id}`}*/}
-                                {/*                photo={acthor}*/}
-                                {/*            />*/}
-                                {/*        );*/}
-                                {/*    })}*/}
-                                {/*</section>*/}
+                                <ActorsList list={listcredits} />
 
                                 <h6>{midia.vote_average}</h6>
-                                <p>{midia.overview}</p>
+                                <TextExpandable
+                                    text={midia.overview}
+                                    maxlength={120}
+                                />
                             </div>
                         </section>
                         {recomendations.length !== 0 && (

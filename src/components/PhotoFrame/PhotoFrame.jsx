@@ -9,7 +9,7 @@ export const PhotoFrame = ({ photo }) => {
     };
 
     return (
-        <figure onClick={goToperson}>
+        <figure className="actor" onClick={goToperson}>
             <img src={ProfileURL + profile_path} alt={name} />
             <figcaption>{name}</figcaption>
         </figure>

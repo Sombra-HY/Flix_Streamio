@@ -1,0 +1,57 @@
+.container-actors{
+    margin: 0 10px;
+}
+
+.listActor {
+    margin: 0 4px;
+    display: flex;
+    width: 60%;
+    overflow-x: auto;
+}
+.listActor .actor{
+    margin: 13px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: #171515;
+    border-radius: 25px 0;
+    transition: transform 300ms;
+
+    width: 120px;
+}
+.listActor figure:hover{
+    transform: scale(1.04);
+}
+
+.listActor::-webkit-scrollbar {
+    width: 15px;
+    height: 8px;
+}
+.listActor::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+.listActor::-webkit-scrollbar-thumb {
+    background: #dad1d1;
+    border-radius: 10px;
+}
+.listActor::-webkit-scrollbar-thumb:hover {
+    background: #2d2d2d;
+}
+
+.listActor img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    background-position: center;
+}
+
+
+.listActor figcaption{
+    margin: auto;
+    padding: 5px 10px;
+}
+
+

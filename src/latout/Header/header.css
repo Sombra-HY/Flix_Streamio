@@ -1,0 +1,23 @@
+
+header{
+    padding-bottom: 5em;
+}
+a{
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+p{
+    font-size: 1.15em;
+}
+
+.nav-container{
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-container ul{
+    display: flex;
+    gap: 4em;
+}
