@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
 //others
 import { URLTMDB } from '../../var';
@@ -44,19 +44,15 @@ export const Home = () => {
     }, []);
 
     return (
-        <>
-            (
-            <>
-                <h1>Movie Now</h1>
-                <BarDynamicPoster listMidia={listMovies} />
-                <h1>Movie Top</h1>
-                <BarDynamicPoster listMidia={listMovies1} />
-                <h1>Serie Top</h1>
-                <BarDynamicPoster listMidia={listSeries} />
-                <h1>Serie Popular</h1>
-                <BarDynamicPoster listMidia={listSeries1} />
-            </>
-            )
-        </>
+        <Suspense fallback={<p>Loading...</p>}>
+            <h1>Movie Now</h1>
+            <BarDynamicPoster listMidia={listMovies} />
+            <h1>Movie Top</h1>
+            <BarDynamicPoster listMidia={listMovies1} />
+            <h1>Serie Top</h1>
+            <BarDynamicPoster listMidia={listSeries} />
+            <h1>Serie Popular</h1>
+            <BarDynamicPoster listMidia={listSeries1} />
+        </Suspense>
     );
 };
