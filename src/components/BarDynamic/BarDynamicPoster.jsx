@@ -36,7 +36,7 @@ function BarDynamicPoster({ listMidia }) {
     };
 
     return (
-        <section>
+        <>
             <section className="BarDynamicPoster">
                 <div
                     className="Allposters"
@@ -61,7 +61,7 @@ function BarDynamicPoster({ listMidia }) {
                     })}
                 </div>
             </section>
-        </section>
+        </>
     );
 }
 

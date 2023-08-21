@@ -1,8 +1,6 @@
 import { Link, Route, Routes } from 'react-router-dom';
 
 import './hom2.css';
-import { useState } from 'react';
-import { TextExpandable } from '../../components/TextExpandable/TextExpandable';
 
 export const Home2 = () => {
     return (
@@ -36,26 +34,18 @@ export const Home2 = () => {
 const SlideShowBar = (props) => {
     const content = props;
 
-
     return (
         <>
             <div className="ContainerSlideShow">
                 <div className="ContentSlides">
                     {lista.map(() => {
                         return (
-                                <figure>
-                                    <img src="" alt="" />
-                                    <figcaption>
-                                        <h1>msg</h1>
-                                    </figcaption>
-                                </figure>
-                                {/*<div className="AboutMOvie">*/}
-                                {/*    <TextExpandable text={text} />*/}
-                                {/*</div>*/}
-                                {/*<div className="titleName">*/}
-                                {/*    <h1>Title</h1>*/}
-                                {/*    <h2>Slogan</h2>*/}
-                                {/*</div>*/}
+                            <figure key={`slide${id}`}>
+                                <img src="" alt="" />
+                                <figcaption>
+                                    <h1>msg</h1>
+                                </figcaption>
+                            </figure>
                         );
                     })}
                 </div>

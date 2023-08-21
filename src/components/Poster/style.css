@@ -1,11 +1,17 @@
 .poster{
     width: 15vw;
     flex-shrink: 0;
-    transition: transform 300ms;
+    transition: transform 300ms, filter 300ms;
 }
 .poster:hover{
     transform: scale(1.08);
+    filter: brightness(1.08) saturate(1.08);
 }
+/*.poster:hover(:not(:hover)){*/
+/*    transform: scale(1.08);*/
+/*    filter: brightness(1.08) saturate(1.08);*/
+/*}*/
+
 .poster img{
     width: 100%;
 
