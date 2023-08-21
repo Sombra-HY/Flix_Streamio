@@ -5,7 +5,7 @@ import { URLTMDB } from '../../var';
 export const useMegadata = () => {
     const [midia, setMidia] = useState([]);
     const [recomendations, setRecomendations] = useState([]);
-    const [, setlistcredits] = useState([]);
+    const [listcredits, setlistcredits] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const { id } = useParams();
@@ -32,5 +32,6 @@ export const useMegadata = () => {
         urlMidia,
         urlRecomend,
         urlcredits,
+        listcredits,
     };
 };

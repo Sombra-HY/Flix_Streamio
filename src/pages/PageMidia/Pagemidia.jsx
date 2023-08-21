@@ -7,6 +7,7 @@ import fetch_api_json from '../../utils/FetchApiJson';
 import BarDynamicPoster from '../../components/BarDynamic/BarDynamicPoster';
 import { TextExpandable } from '../../components/TextExpandable/TextExpandable';
 import { useMegadata } from './useMegadata';
+import { ActorsList } from '../../components/ActorsList/ActorsList';
 
 const PageMidia = () => {
     const {
@@ -14,6 +15,7 @@ const PageMidia = () => {
         setMidia,
         recomendations,
         setRecomendations,
+        listcredits,
         setlistcredits,
         isLoading,
         setIsLoading,
@@ -79,17 +81,7 @@ const PageMidia = () => {
                                         );
                                     })}
                                 </div>
-
-                                {/*<section className="autores">*/}
-                                {/*    {listcredits.map((acthor, index) => {*/}
-                                {/*        return (*/}
-                                {/*            <PhotoFrame*/}
-                                {/*                key={`Acthor${acthor.id}`}*/}
-                                {/*                photo={acthor}*/}
-                                {/*            />*/}
-                                {/*        );*/}
-                                {/*    })}*/}
-                                {/*</section>*/}
+                                <ActorsList list={listcredits} />
 
                                 <h6>{midia.vote_average}</h6>
                                 <TextExpandable
