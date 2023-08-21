@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import './style.css';
+
 export const TextExpandable = ({ text, maxlength }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const Maxlength = maxlength || 100;
