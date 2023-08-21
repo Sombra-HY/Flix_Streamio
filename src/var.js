@@ -37,5 +37,5 @@ export const URLTMDB = {
 //
 // }
 export const imageURL = 'https://image.tmdb.org/t/p/w342/';
-export const ProfileURL = 'https://image.tmdb.org/t/p/w45/';
+export const ProfileURL = 'https://image.tmdb.org/t/p/w185/';
 export const imageURLoriginal = 'https://image.tmdb.org/t/p/w1280/';
