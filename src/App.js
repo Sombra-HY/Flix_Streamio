@@ -1,4 +1,4 @@
-import { useState, Suspense, lazy } from 'react';
+import { useState, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
@@ -12,8 +12,7 @@ import { Home } from './pages/Home/Home';
 //layouts
 import { Header } from './latout/Header/Header';
 import { Footer } from './latout/Footer/Footer';
-
-const PageMidia = lazy(() => import('./pages/PageMidia/Pagemidia'));
+import PageMidia from './pages/PageMidia/Pagemidia';
 
 function App() {
     const [listseach, SetListseach] = useState([]);

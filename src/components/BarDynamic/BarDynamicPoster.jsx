@@ -2,7 +2,7 @@ import { Poster } from '../Poster/Poster';
 import './style.css';
 import { useMetaData } from './UseMetaData';
 
-function BarDynamicPoster({ children, listMidia }) {
+function BarDynamicPoster({ listMidia }) {
     const {
         carouselRef,
         isDragging,
