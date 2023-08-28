@@ -1,5 +1,5 @@
 import Search from './Search.png';
-import Searchchecked from './Search-checked.png';
+import Searchchecked from './Search_checked.png';
 
 export const IconSearch = ({ check = true, className = null }) => {
     return (
