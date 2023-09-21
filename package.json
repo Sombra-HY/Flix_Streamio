@@ -14,6 +14,8 @@
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
+    "react-spring": "^9.7.2",
+    "react-transition-group": "^4.4.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -44,9 +46,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "eslint": "^8.0.0",
-      "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-      "eslint-config-prettier": "^8.8.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-prettier": "^5.0.0-alpha.2",
     "gh-pages": "^5.0.0",

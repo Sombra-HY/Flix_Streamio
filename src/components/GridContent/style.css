@@ -3,7 +3,9 @@
 .Grid-container{
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    margin: auto;
+    margin: auto 0;
+    position: absolute;
+    top: 15%;
     padding: 3%;
 }
 .Grid-container .poster{

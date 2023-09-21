@@ -1,14 +1,15 @@
 import { Suspense, useEffect, useState } from 'react';
 
 //others
-import { URLTMDB } from '../../var';
+import { URLTMDB } from '../../data/urls';
 import fetch_api_json from '../../utils/FetchApiJson';
 
 //css
-import '../../App.css';
-
-//components
+import '../../assets/App.css';
+import './home.css';
+//components2
 import BarDynamicPoster from '../../components/BarDynamic/BarDynamicPoster';
+import { Slide } from '../../components/Slide/Slide';
 
 export const Home = () => {
     const [listMovies, setListMovies] = useState([]);
@@ -45,14 +46,17 @@ export const Home = () => {
 
     return (
         <Suspense fallback={<p>Loading...</p>}>
-            <h1>Movie Now</h1>
-            <BarDynamicPoster listMidia={listMovies} />
-            <h1>Movie Top</h1>
-            <BarDynamicPoster listMidia={listMovies1} />
-            <h1>Serie Top</h1>
-            <BarDynamicPoster listMidia={listSeries} />
-            <h1>Serie Popular</h1>
-            <BarDynamicPoster listMidia={listSeries1} />
+            <Slide />
+            <section className="contentMain">
+                <h1>Movie Now</h1>
+                <BarDynamicPoster listMidia={listMovies} />
+                <h1>Movie Top</h1>
+                <BarDynamicPoster listMidia={listMovies1} />
+                <h1>Serie Top</h1>
+                <BarDynamicPoster listMidia={listSeries} />
+                <h1>Serie Popular</h1>
+                <BarDynamicPoster listMidia={listSeries1} />
+            </section>
         </Suspense>
     );
 };

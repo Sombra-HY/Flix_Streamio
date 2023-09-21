@@ -1,5 +1,7 @@
 .inputSearch{
-    width: 10%;
+    margin-top: 6%;
+    width: 100%;
+    height: 8%;
     background: transparent;
     border: 1px solid #8d8d8d;
     font-size: 1em;
@@ -13,6 +15,6 @@
         background-color ease-in-out 0.5s;
 }
 .inputSearch:hover{
-    width: 30%;
+
     background-color: rgba(0, 0, 0, 0.2);
 }

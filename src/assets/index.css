@@ -12,3 +12,8 @@ code {
     monospace;
 }
 
+
+main > *:not(.ContentSlides) {
+    margin-top: 10%;
+}
+

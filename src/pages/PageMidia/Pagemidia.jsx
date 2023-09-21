@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { imageURL, imageURLoriginal } from '../../var';
+import { imageURL, imageURLoriginal } from '../../data/urls';
 
 import './style.css';
 

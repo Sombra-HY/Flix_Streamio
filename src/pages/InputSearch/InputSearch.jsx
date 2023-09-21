@@ -1,11 +1,12 @@
-import { URLTMDB } from '../../var';
+import { URLTMDB } from '../../data/urls';
 import fetch_api_json from '../../utils/FetchApiJson';
 
 import './style.css';
 
 import { useMetaData } from './UseMetaData';
+import { useState } from 'react';
 
-export const InputSearch = ({ listseach, SetListseach }) => {
+export const InputSearch = ({ SetListseach, listseach }) => {
     const { inputvalue, SetInputValue, valueSearch, setValueSearch, navigate } =
         useMetaData();
     const { search } = URLTMDB;
@@ -15,7 +16,7 @@ export const InputSearch = ({ listseach, SetListseach }) => {
         const SearchMidias = await fetch_api_json(wordSearch);
 
         SetListseach(SearchMidias.results);
-        navigate('/searchmidias');
+        navigate(`/search/${inputvalue}`);
     };
 
     const getValueinput = (e) => {

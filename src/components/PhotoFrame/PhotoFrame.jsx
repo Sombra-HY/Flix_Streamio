@@ -1,5 +1,5 @@
 import './style.css';
-import { ProfileURL } from '../../var';
+import { ProfileURL } from '../../data/urls';
 
 export const PhotoFrame = ({ photo }) => {
     const { name, profile_path } = photo;

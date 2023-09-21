@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import { URLTMDB } from '../../var';
+import { URLTMDB } from '../../data/urls';
 
 export const useMegadata = () => {
     const [midia, setMidia] = useState([]);

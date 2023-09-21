@@ -16,6 +16,7 @@ export const URLTMDB = {
         detailsID: HOST + '/movie/id',
         recomendationsID: HOST + '/movie/id/similar',
         credits: HOST + '/movie/id/credits',
+        img: HOST + '/movie/ID/images',
     },
     serie: {
         now: HOST + `/tv/on_the_air?language=en-US`,
@@ -26,6 +27,7 @@ export const URLTMDB = {
         detailsID: HOST + '/tv/id',
         recomendationsID: HOST + '/tv/id/similar',
         credits: HOST + '/tv/id/credits',
+        img: HOST + '/tv/ID/images',
     },
     search: {
         movie: HOST + `/search/multi?query=`,
@@ -33,9 +35,6 @@ export const URLTMDB = {
     },
 };
 
-// export Quality = {
-//
-// }
 export const imageURL = 'https://image.tmdb.org/t/p/w342/';
 export const ProfileURL = 'https://image.tmdb.org/t/p/w185/';
 export const imageURLoriginal = 'https://image.tmdb.org/t/p/w1280/';

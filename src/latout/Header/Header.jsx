@@ -1,17 +1,23 @@
 import { Link } from 'react-router-dom';
-import './header.css';
 
-export const Header = ({ children }) => {
+import './hom2.css';
+import { IconSearch } from '../../assets/icons/IconSearch/IconSearch';
+
+export const Header = () => {
     return (
-        <>
-            <header>
-                <nav className="nav-container">
+        <header className="container-header">
+            <nav className="containerNavgation">
+                <div className="centeredLinks">
                     <Link to="/">Home</Link>
-                    <Link to="/series">Series</Link>
+                    <Link to="/">Series</Link>
                     <Link to="/">Movies</Link>
-                    {children}
-                </nav>
-            </header>
-        </>
+                </div>
+                <div className="searchIcon">
+                    <Link to="/search">
+                        <IconSearch className="IconsSearch" check={false} />
+                    </Link>
+                </div>
+            </nav>
+        </header>
     );
 };

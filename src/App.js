@@ -1,38 +1,42 @@
 import { useState, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import './App.css';
+import './assets/App.css';
 
-//components
+//components2
 import { GridContent } from './components/GridContent/GridContent';
-import { InputSearch } from './components/InputSearch/InputSearch';
+import { InputSearch } from './pages/InputSearch/InputSearch';
 import { Home } from './pages/Home/Home';
-// import PageMidia from './pages/PageMidia/Pagemidia';
 
 //layouts
-import { Header } from './latout/Header/Header';
 import { Footer } from './latout/Footer/Footer';
 import PageMidia from './pages/PageMidia/Pagemidia';
+import { Header } from './latout/Header/Header';
 
 function App() {
     const [listseach, SetListseach] = useState([]);
 
     return (
         <>
-            <Header>
-                <InputSearch
-                    listseach={listseach}
-                    SetListseach={SetListseach}
-                />
-            </Header>
+            <Header />
 
             <main>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="*" element={<Home />} />
+                    <Route
+                        path="/search"
+                        element={
+                            <InputSearch
+                                listseach={listseach}
+                                SetListseach={SetListseach}
+                            />
+                        }
+                    />
+
                     {listseach.length !== 0 && (
                         <Route
-                            path="/searchmidias"
+                            path="/search/:name"
                             element={
                                 <Suspense fallback={<p>Loading...</p>}>
                                     {' '}
@@ -41,6 +45,7 @@ function App() {
                             }
                         />
                     )}
+
                     <Route
                         path="/serie/:id"
                         element={

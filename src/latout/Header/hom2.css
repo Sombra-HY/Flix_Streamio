@@ -3,13 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    background: #8d8d8d;
-}
+
 .container-header{
     z-index: 3;
-    margin: 1% 3.2% 0;
-
+    padding: 1% 3.2% 0;
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    top: 0;
 }
 .containerNavgation {
     display: flex;
@@ -28,4 +29,15 @@ body{
 .searchIcon {
     display: flex;
     align-items: center;
+}
+
+
+.searchIcon .IconsSearch{
+    width: 50px;
+    filter: brightness(0.90);
+    transition: filter 300ms;
+}
+.searchIcon .IconsSearch:hover{
+    filter: brightness(1.1);
+
 }

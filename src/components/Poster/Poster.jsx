@@ -1,4 +1,4 @@
-import { imageURL } from '../../var';
+import { imageURL } from '../../data/urls';
 
 import './style.css';
 import { useNavigate } from 'react-router-dom';

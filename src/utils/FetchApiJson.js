@@ -1,4 +1,4 @@
-import { options } from '../var';
+import { options } from '../data/urls';
 
 async function fetch_api_json(url) {
     const ContentPromise = fetch(url, options);
