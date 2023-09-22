@@ -33,6 +33,5 @@ export const getImgMovie = async () => {
     };
 
     await Load();
-
     return randomImgs(lista);
 };

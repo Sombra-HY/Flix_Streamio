@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './style.css';
 import { getImgMovie } from './data/getImgMovie';
 import { useChangeImage } from './hooks/useChangeImage';
+import { TextExpandable } from '../TextExpandable/TextExpandable';
 
 export const Slide = () => {
     const [img, setImgs] = useState([]);
@@ -27,17 +28,28 @@ export const Slide = () => {
 
     return (
         <article className="ContentSlides">
-            {img.map((image, index) => (
-                <figure
-                    key={index}
-                    style={{
-                        opacity: index === currentImageIndex ? 1 : 0,
-                        transition: 'opacity 0.5s ease-in-out',
-                    }}
-                >
-                    <img src={image} alt={`Slide ${index}`} />
-                </figure>
-            ))}
+            {img.map((midia, index) => {
+                const { imgs, title, overview } = midia;
+
+                return (
+                    <figure
+                        key={index}
+                        style={{
+                            opacity: index === currentImageIndex ? 1 : 0,
+                            transition: 'opacity 0.5s ease-in-out',
+                        }}
+                    >
+                        <img src={imgs} alt={`Slide ${index}`} />
+                        <figcaption className={'slide-legend'}>
+                            {' '}
+                            <h1>{title} </h1>
+                            <h3>
+                                <TextExpandable text={overview} />
+                            </h3>
+                        </figcaption>
+                    </figure>
+                );
+            })}
         </article>
     );
 };
