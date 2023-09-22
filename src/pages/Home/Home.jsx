@@ -40,7 +40,7 @@ export const Home = () => {
         }
 
         Load().catch(() => {
-            console.log('a');
+            console.log('ao');
         });
     }, []);
 
