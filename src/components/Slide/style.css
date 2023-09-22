@@ -80,7 +80,7 @@
     top: 50%;
     right: 6%;
     transform: translate(-0%, -50%);
-    font-size: calc(3em + 30%);
+    font-size: calc(3rem + 30%);
     z-index: 4;
 
     width: 40vh;
@@ -101,4 +101,24 @@
     transform: translate(-0%, -50%);
     z-index: 4;
 
+}
+@media (max-width: 700px){
+    .slide-legend h3{
+        display: none;
+    }
+    .slide-legend h1{
+        position: absolute;
+
+        top: 70%;
+        right: 6%;
+        transform: translate(-50%, -50%);
+        font-size: calc(1.5rem + 20%);
+        z-index: 4;
+
+        width: 30vh;
+        text-align: right;
+        display: flex;
+        flex-wrap: wrap;
+
+    }
 }

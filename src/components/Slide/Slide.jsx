@@ -3,6 +3,7 @@ import './style.css';
 import { getImgMovie } from './data/getImgMovie';
 import { useChangeImage } from './hooks/useChangeImage';
 import { TextExpandable } from '../TextExpandable/TextExpandable';
+import { RateStar } from '../rateStar/rateStar';
 
 export const Slide = () => {
     const [img, setImgs] = useState([]);
@@ -29,7 +30,7 @@ export const Slide = () => {
     return (
         <article className="ContentSlides">
             {img.map((midia, index) => {
-                const { imgs, title, overview } = midia;
+                const { imgs, title, overview, vote_average } = midia;
 
                 return (
                     <figure
@@ -44,6 +45,7 @@ export const Slide = () => {
                             {' '}
                             <h1>{title} </h1>
                             <h3>
+                                <RateStar rate={vote_average} />
                                 <TextExpandable
                                     maxlength={155}
                                     text={overview}
