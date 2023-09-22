@@ -44,7 +44,10 @@ export const Slide = () => {
                             {' '}
                             <h1>{title} </h1>
                             <h3>
-                                <TextExpandable text={overview} />
+                                <TextExpandable
+                                    maxlength={160}
+                                    text={overview}
+                                />
                             </h3>
                         </figcaption>
                     </figure>

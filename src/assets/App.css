@@ -26,3 +26,33 @@ body{
 main{
 
 }
+
+/* Estilizando a barra de rolagem */
+/* Estilizando a barra de rolagem em si */
+::-webkit-scrollbar {
+    width: 6px; /* Largura da barra de rolagem vertical */
+    height: 5px; /* Altura da barra de rolagem horizontal */
+}
+
+/* Estilizando o polegar (a parte que você arrasta) */
+::-webkit-scrollbar-thumb {
+    background: #505050; /* Cor de fundo do polegar */
+    border-radius: 6px; /* Raio das bordas do polegar */
+}
+
+/* Adicione hover para uma interação mais clara */
+::-webkit-scrollbar-thumb:hover {
+    background: none; /* Cor de fundo do polegar ao passar o mouse */
+}
+
+/* Estilizando as setas (botões de rolagem) */
+::-webkit-scrollbar-button {
+    background: none; /* Cor de fundo das setas */
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+::-webkit-scrollbar-track:hover {
+    background: none;
+}
