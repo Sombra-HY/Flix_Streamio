@@ -45,7 +45,7 @@ export const Slide = () => {
                             <h1>{title} </h1>
                             <h3>
                                 <TextExpandable
-                                    maxlength={160}
+                                    maxlength={155}
                                     text={overview}
                                 />
                             </h3>
