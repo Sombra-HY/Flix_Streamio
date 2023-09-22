@@ -4,9 +4,8 @@ import fetch_api_json from '../../utils/FetchApiJson';
 import './style.css';
 
 import { useMetaData } from './UseMetaData';
-import { useState } from 'react';
 
-export const InputSearch = ({ SetListseach, listseach }) => {
+export const InputSearch = ({ SetListseach }) => {
     const { inputvalue, SetInputValue, valueSearch, setValueSearch, navigate } =
         useMetaData();
     const { search } = URLTMDB;
