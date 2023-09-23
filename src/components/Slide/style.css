@@ -95,8 +95,9 @@
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    width: 40vh;
-    top: 60%;
+    text-align: left;
+    width: 35vh;
+    top: 70%;
     left: 6%;
     transform: translate(-0%, -50%);
     z-index: 4;
@@ -115,8 +116,24 @@
         font-size: calc(1.5rem + 20%);
         z-index: 4;
 
+        text-align: center;
+        width: 20vh;
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+}@media (max-width: 700px){
+    .slide-legend h1{
+        position: absolute;
+
+        top: 70%;
+        right: 6%;
+        transform: translate(-50%, -50%);
+        font-size: calc(1.5rem + 20%);
+        z-index: 4;
+
+        text-align: center;
         width: 30vh;
-        text-align: right;
         display: flex;
         flex-wrap: wrap;
 
