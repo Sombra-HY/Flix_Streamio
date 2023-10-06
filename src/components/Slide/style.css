@@ -58,11 +58,7 @@
     height: 100%;
 }
 .slide-legend {
-    /*position: absolute;*/
 
-    /*top: 50%;*/
-    /*left: 0%;*/
-    /*transform: translate(-0%, -50%);*/
     padding: 10px;
     border-radius: 5px;
     text-align: center;
@@ -73,8 +69,7 @@
     font-family: 'League Spartan', sans-serif;
     font-family: 'Nunito', sans-serif;
 }
-
-.slide-legend h1{
+.slide-legend .text{
     position: absolute;
 
     top: 50%;
@@ -87,7 +82,13 @@
     text-align: right;
     display: flex;
     flex-wrap: wrap;
+    justify-content: right;
 
+}
+
+.slide-legend .text h2{
+    font-size: 40%;
+    color: #eaeaea;
 }
 
 .slide-legend h3{
@@ -103,11 +104,8 @@
     z-index: 4;
 
 }
-@media (max-width: 700px){
-    .slide-legend h3{
-        display: none;
-    }
-    .slide-legend h1{
+@media (max-width: 1000px){
+    .slide-legend .text h1{
         position: absolute;
 
         top: 70%;
@@ -120,10 +118,22 @@
         width: 20vh;
         display: flex;
         flex-wrap: wrap;
+        justify-content: right;
 
     }
-}@media (max-width: 700px){
-    .slide-legend h1{
+    .slide-legend .text h2{
+        display: none;
+    }
+
+
+}
+
+
+@media (max-width: 700px){
+    .slide-legend h3{
+        display: none;
+    }
+    .slide-legend .text h1{
         position: absolute;
 
         top: 70%;
@@ -133,9 +143,27 @@
         z-index: 4;
 
         text-align: center;
-        width: 30vh;
+        width: 20vh;
         display: flex;
         flex-wrap: wrap;
+        justify-content: right;
+
+    }
+}@media (max-width: 500px){
+    .slide-legend .text h1{
+        position: absolute;
+
+        top: 70%;
+        right: 6%;
+        transform: translate(-50%, -50%);
+        font-size: calc(1.5rem + 20%);
+        z-index: 4;
+
+        text-align: center;
+        width: 25vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: right;
 
     }
 }

@@ -9,10 +9,11 @@ export const getImgMovie = async () => {
 
     const Load = async () => {
         try {
-            const { now, top } = movie;
+            const { now, top, detailsID } = movie;
             const typemidia = [now, top][getRandomInt(0, 1)];
 
             const moviesContent = await fetch_api_json(typemidia);
+            console.log(typemidia);
             const idObjMidia = moviesContent.results.map((midia) => {
                 const { id, title, overview, vote_average } = midia;
                 return { id, title, overview, vote_average };
@@ -20,12 +21,19 @@ export const getImgMovie = async () => {
 
             for (const obj of idObjMidia) {
                 const url = movie.img.replace('ID', obj.id);
+                const urldetails = detailsID.replace('id', obj.id);
+
                 const res = await fetch_api_json(url);
+                const resDet = await fetch_api_json(urldetails);
+                const { tagline } = resDet;
+
+                console.log(urldetails);
+                console.log(tagline);
                 const imgs = res.backdrops.filter(
                     (midia) => midia.iso_639_1 === null,
                 );
 
-                lista.push({ ...obj, imgs });
+                lista.push({ ...obj, imgs, tagline });
             }
         } catch (error) {
             console.log('Erro:', error);

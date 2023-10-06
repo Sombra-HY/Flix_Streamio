@@ -10,27 +10,15 @@ export const Slide = () => {
     const [currentImageIndex] = useChangeImage(img);
 
     useEffect(() => {
-        const storedImgs = localStorage.getItem('imgs');
-
-        if (!storedImgs) {
-            getImgMovie().then((data) => {
-                localStorage.setItem('imgs', JSON.stringify(data));
-                setImgs(data);
-            });
-        } else {
-            try {
-                const parsedImgs = JSON.parse(storedImgs);
-                setImgs(parsedImgs);
-            } catch (error) {
-                console.error('Erro ao analisar JSON:', error);
-            }
-        }
+        getImgMovie().then((data) => {
+            setImgs(data);
+        });
     }, []);
 
     return (
         <article className="ContentSlides">
             {img.map((midia, index) => {
-                const { imgs, title, overview, vote_average } = midia;
+                const { imgs, title, overview, vote_average, tagline } = midia;
 
                 return (
                     <figure
@@ -43,7 +31,10 @@ export const Slide = () => {
                         <img src={imgs} alt={`Slide ${index}`} />
                         <figcaption className={'slide-legend'}>
                             {' '}
-                            <h1>{title} </h1>
+                            <div className="text">
+                                <h1>{title} </h1>
+                                <h2>{tagline}</h2>
+                            </div>
                             <h3>
                                 <RateStar rate={vote_average} />
                                 <TextExpandable
