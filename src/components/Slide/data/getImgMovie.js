@@ -34,6 +34,7 @@ export const getImgMovie = async () => {
                 );
 
                 lista.push({ ...obj, imgs, tagline });
+                // setState((lista) => [...lista, { ...obj, imgs, tagline }]);
             }
         } catch (error) {
             console.log('Erro:', error);

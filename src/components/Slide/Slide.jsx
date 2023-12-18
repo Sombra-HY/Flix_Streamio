@@ -10,7 +10,9 @@ export const Slide = () => {
     const [currentImageIndex] = useChangeImage(img);
 
     useEffect(() => {
-        getImgMovie().then((data) => {
+        // getImgMovie(img, setImgs);
+
+        getImgMovie(img, setImgs).then((data) => {
             setImgs(data);
         });
     }, []);

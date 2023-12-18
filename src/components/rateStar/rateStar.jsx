@@ -12,11 +12,11 @@ export const RateStar = ({ rate }) => {
         for (let i = 0; i < 5; i++) {
             stars.push(
                 cont >= 2 ? (
-                    <BsStarFill className={starclass} />
+                    <BsStarFill key={`star${i}`} className={starclass} />
                 ) : cont <= 0 ? (
-                    <BsStar className={starclass} />
+                    <BsStar key={`star${i}`} className={starclass} />
                 ) : (
-                    <BsStarHalf className={starclass} />
+                    <BsStarHalf key={`star${i}`} className={starclass} />
                 ),
             );
             cont = cont - 2;
