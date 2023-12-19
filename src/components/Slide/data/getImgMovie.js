@@ -20,7 +20,7 @@ export const getImgMovie = async (setState) => {
             });
             let i = 0;
             for (const obj of idObjMidia) {
-                if (i === 2) {
+                if (i === 6) {
                     return;
                 }
                 i++;
