@@ -9,6 +9,7 @@ export const randomImgs = (obj) => {
         console.log('obj', index, obj);
 
         if (!midia || !midia.imgs[0].file_path) {
+            // eslint-disable-next-line array-callback-return
             return;
         }
         let { imgs } = midia;

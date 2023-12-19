@@ -13,7 +13,7 @@ export const Slide = () => {
         getImgMovie(img, setImgs).then((data) => {
             setImgs(data);
         });
-    }, []);
+    }, [img]);
 
     return (
         <article className="ContentSlides">
