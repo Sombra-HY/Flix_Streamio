@@ -10,10 +10,10 @@ export const Slide = () => {
     const [currentImageIndex] = useChangeImage(img);
 
     useEffect(() => {
-        getImgMovie(img, setImgs).then((data) => {
+        getImgMovie(setImgs).then((data) => {
             setImgs(data);
         });
-    }, [img]);
+    }, []);
 
     return (
         <article className="ContentSlides">

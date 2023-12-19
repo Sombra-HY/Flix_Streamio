@@ -3,7 +3,7 @@ import { URLTMDB } from '../../../data/urls';
 import { randomImgs } from '../utils/randomimgs';
 import { getRandomInt } from '../utils/getRandomInt';
 
-export const getImgMovie = async (state, setState) => {
+export const getImgMovie = async (setState) => {
     const { movie } = URLTMDB;
     const lista = [];
 
