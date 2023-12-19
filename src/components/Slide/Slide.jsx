@@ -10,8 +10,6 @@ export const Slide = () => {
     const [currentImageIndex] = useChangeImage(img);
 
     useEffect(() => {
-        // getImgMovie(img, setImgs);
-
         getImgMovie(img, setImgs).then((data) => {
             setImgs(data);
         });
@@ -30,7 +28,11 @@ export const Slide = () => {
                             transition: 'opacity 0.5s ease-in-out',
                         }}
                     >
-                        <img src={imgs} alt={`Slide ${index}`} />
+                        <img
+                            src={imgs}
+                            alt={`Slide ${index}`}
+                            loading={'lazy'}
+                        />
                         <figcaption className={'slide-legend'}>
                             {' '}
                             <div className="text">

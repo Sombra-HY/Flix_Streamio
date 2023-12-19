@@ -3,7 +3,7 @@ import { URLTMDB } from '../../../data/urls';
 import { randomImgs } from '../utils/randomimgs';
 import { getRandomInt } from '../utils/getRandomInt';
 
-export const getImgMovie = async () => {
+export const getImgMovie = async (state, setState) => {
     const { movie } = URLTMDB;
     const lista = [];
 
@@ -18,8 +18,12 @@ export const getImgMovie = async () => {
                 const { id, title, overview, vote_average } = midia;
                 return { id, title, overview, vote_average };
             });
-
+            let i = 0;
             for (const obj of idObjMidia) {
+                if (i === 2) {
+                    return;
+                }
+                i++;
                 const url = movie.img.replace('ID', obj.id);
                 const urldetails = detailsID.replace('id', obj.id);
 
@@ -34,7 +38,7 @@ export const getImgMovie = async () => {
                 );
 
                 lista.push({ ...obj, imgs, tagline });
-                // setState((lista) => [...lista, { ...obj, imgs, tagline }]);
+                setState((lista) => [...lista, { ...obj, imgs, tagline }]);
             }
         } catch (error) {
             console.log('Erro:', error);
