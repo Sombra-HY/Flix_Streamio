@@ -27,7 +27,6 @@ export const getImgMovie = async (setState) => {
                 const resDet = await fetch_api_json(urldetails);
                 const { tagline } = resDet;
 
-
                 const imgs = res.backdrops.filter(
                     (midia) => midia.iso_639_1 === null,
                 );

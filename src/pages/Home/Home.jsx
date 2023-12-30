@@ -1,4 +1,4 @@
-import {  useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 //others
 import { URLTMDB } from '../../data/urls';
