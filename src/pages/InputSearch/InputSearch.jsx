@@ -4,50 +4,41 @@ import fetch_api_json from '../../utils/FetchApiJson';
 import './style.css';
 
 import { useMetaData } from './UseMetaData';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { GridContent } from '../../components/GridContent/GridContent';
+import { useState } from 'react';
 
-export const InputSearch = () => {
+export const InputSearch = ({ SetListseach, listseach }) => {
     const { inputvalue, SetInputValue, valueSearch, setValueSearch, navigate } =
         useMetaData();
-    const [ListMidia, setListMidia] = useState([]);
-
     const { search } = URLTMDB;
-    const { name } = useParams();
+
     const searchMidias = async () => {
-        const wordSearch = search.movie + name;
+        const wordSearch = search.movie + inputvalue;
         const SearchMidias = await fetch_api_json(wordSearch);
-        setListMidia(SearchMidias.results);
+
+        SetListseach(SearchMidias.results);
+        navigate(`/search/${inputvalue}`);
     };
 
-    useEffect(() => {
-        if (name) {
-            const Search = () => searchMidias();
-            Search();
-        }
-    }, [name]);
+    const getValueinput = (e) => {
+        SetInputValue(e.target.value);
+    };
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
             setValueSearch(event.target.value);
 
-            valueSearch !== inputvalue && navigate(`/search/${inputvalue}`);
+            valueSearch !== inputvalue && searchMidias();
         }
     };
 
     return (
-        <>
-            <input
-                className="inputSearch"
-                type="search"
-                name=""
-                placeholder="Digite"
-                onChange={(e) => SetInputValue(e.target.value)}
-                value={inputvalue}
-                onKeyDown={handleKeyDown}
-            />
-            {ListMidia.length !== 0 && <GridContent content={ListMidia} />}
-        </>
+        <input
+            className="inputSearch"
+            type="search"
+            name=""
+            placeholder="Digite"
+            onChange={getValueinput}
+            onKeyDown={handleKeyDown}
+        />
     );
 };
