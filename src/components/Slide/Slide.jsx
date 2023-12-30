@@ -3,34 +3,27 @@ import './style.css';
 import { getImgMovie } from './data/getImgMovie';
 import { useChangeImage } from './hooks/useChangeImage';
 import { TextExpandable } from '../TextExpandable/TextExpandable';
+import { imageURLUHD } from '../../data/urls';
 
 export const Slide = () => {
     const [img, setImgs] = useState([]);
     const [currentImageIndex] = useChangeImage(img);
 
     useEffect(() => {
-        const storedImgs = localStorage.getItem('imgs');
-
-        if (!storedImgs) {
-            getImgMovie().then((data) => {
-                localStorage.setItem('imgs', JSON.stringify(data));
-                setImgs(data);
-            });
-        } else {
-            try {
-                const parsedImgs = JSON.parse(storedImgs);
-                setImgs(parsedImgs);
-            } catch (error) {
-                console.error('Erro ao analisar JSON:', error);
-            }
-        }
+        getImgMovie(setImgs).then((data) => {
+            setImgs(data);
+        });
     }, []);
 
     return (
         <article className="ContentSlides">
             {img.map((midia, index) => {
                 const { imgs, title, overview } = midia;
-
+                let urlimg =
+                    typeof imgs === 'string'
+                        ? imgs
+                        : imageURLUHD + imgs[0].file_path;
+                console.log('bq', imgs);
                 return (
                     <figure
                         key={index}
@@ -39,7 +32,7 @@ export const Slide = () => {
                             transition: 'opacity 0.5s ease-in-out',
                         }}
                     >
-                        <img src={imgs} alt={`Slide ${index}`} />
+                        <img src={urlimg} alt={`Slide ${index}`} />
                         <figcaption className={'slide-legend'}>
                             {' '}
                             <h1>{title} </h1>
