@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 
 //others
 import { URLTMDB } from '../../data/urls';
@@ -45,7 +45,7 @@ export const Home = () => {
     }, []);
 
     return (
-        <Suspense fallback={<p>Loading...</p>}>
+        <>
             <Slide />
             <section className="contentMain">
                 <h1>Movie Now</h1>
@@ -57,6 +57,6 @@ export const Home = () => {
                 <h1>Serie Popular</h1>
                 <BarDynamicPoster listMidia={listSeries1} />
             </section>
-        </Suspense>
+        </>
     );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { imageURL, imageURLoriginal } from '../../data/urls';
+import { imageURL, imageURLUHD } from '../../data/urls';
 
 import './style.css';
 
@@ -57,7 +57,7 @@ const PageMidia = () => {
                         className="midia-container"
                         style={{
                             backgroundImage: `url(${
-                                imageURLoriginal + midia.backdrop_path
+                                imageURLUHD + midia.backdrop_path
                             })`,
                         }}
                     >
